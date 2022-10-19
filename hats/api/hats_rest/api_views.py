@@ -4,6 +4,7 @@ from django.http import JsonResponse
 import json
 
 from common.json import ModelEncoder
+from .acls import get_hat
 from .models import LocationVO, Hat
 
 # Create your views here.
@@ -22,20 +23,10 @@ class HatListEncoder(ModelEncoder):
 
 class HatDetailEncoder(ModelEncoder):
     model = Hat
-    properties = ["style", "fabric", "color", "location"]
+    properties = ["style", "fabric", "color", "location", "picture_url"]
     encoders = {
         "location": LocationVOEncoder(),
         }
-
-
-@require_http_methods(["GET"])
-def api_loc(request):
-    if request.method == "GET":
-        locVO = LocationVO.objects.all()
-        return JsonResponse(
-                {"loc": locVO},
-                encoder=LocationVOEncoder,
-        )
 
 
 
@@ -97,9 +88,49 @@ def api_list_hats(request, location_vo_href=None):
                 status=400
             )
 
+
+        photo = get_hat(content["fabric"], content["style"], content["color"])
+        content.update(photo)
         hat = Hat.objects.create(**content)
         return JsonResponse(
             hat,
             encoder=HatDetailEncoder,
             safe=False,
         )
+
+
+@require_http_methods(["DELETE", "GET"])
+def api_show_hat(request,pk):
+    """
+    Returns the details of the Hat model specified by the pk parameter.
+
+    Returns a dictionary with the fabric, style, color, and location.
+
+    {
+        "style": hat's style,
+        "fabric": hat's fabric,
+        "color": hat's color,
+        "location": {
+            "closet_name": location's closet name,
+            "section_number": the number of the wardrobe section,
+            "shelf_number": the number of the shelf,
+            "href": URL to the location,
+        }
+    }
+    """
+
+    if request.method == "GET":
+        hat = Hat.objects.get(id=pk)
+        return JsonResponse(
+            hat,
+            encoder=HatDetailEncoder,
+            safe=False,
+        )
+
+    else:
+        try:
+            hat = Hat.objects.filter(id=pk)
+            hat.delete()
+            return JsonResponse({"deleted": "your hat has been deleted"})
+        except Hat.DoesNotExist:
+            return JsonResponse({"message": "hat does not exist"})

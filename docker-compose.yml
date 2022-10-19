@@ -64,7 +64,6 @@ services:
       DATABASE_URL: postgres://shoes:password@database:5432/shoes
       WAIT_HOSTS: database:5432,shoes-api:8000
       WAIT_TIMEOUT: 240
-      PEXELS_API_KEY: ${PEXELS_API_KEY}
   hats-api:
     build:
       context: ./hats/api
@@ -79,6 +78,7 @@ services:
       DATABASE_URL: postgres://hats:password@database:5432/hats
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
+      PEXELS_API_KEY: ${PEXELS_API_KEY}
   hats-poller:
     build:
       context: ./hats/poll

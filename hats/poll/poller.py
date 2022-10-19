@@ -21,7 +21,6 @@ def poll():
             response = requests.get("http://wardrobe-api:8000/api/locations/")
             content = json.loads(response.content)
             for location in content["locations"]:
-                print(location)
                 LocationVO.objects.update_or_create(
                     import_href=location["href"],
                     defaults={
