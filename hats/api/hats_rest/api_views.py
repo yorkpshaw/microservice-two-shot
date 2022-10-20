@@ -15,7 +15,7 @@ class LocationVOEncoder(ModelEncoder):
 
 class HatListEncoder(ModelEncoder):
     model = Hat
-    properties = ["style", "fabric", "color"]
+    properties = ["style", "fabric", "color", "picture_url"]
 
     def get_extra_data(self, o):
         return {"location": o.location.import_href}
@@ -89,7 +89,7 @@ def api_list_hats(request, location_vo_href=None):
             )
 
 
-        photo = get_hat(content["fabric"], content["style"], content["color"])
+        photo = get_hat(content["style"], content["color"])
         content.update(photo)
         hat = Hat.objects.create(**content)
         return JsonResponse(
