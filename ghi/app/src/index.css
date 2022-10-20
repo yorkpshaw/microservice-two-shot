@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-img-overlay {
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+
+}
+
+.card-img-overlay:hover {
+  opacity: 1
+}

@@ -2,7 +2,7 @@ import json
 import requests
 import os
 
-PEXELS_API_KEY = os.environ["PEXELS_API_KEY"]
+PEXELS_API_KEY = "563492ad6f9170000100000167984a3e6a3748e3912fc621273d7c5b"
 
 def get_photo(manufacturer, model_name, color):
     headers = {"Authorization": PEXELS_API_KEY}

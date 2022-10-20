@@ -4,11 +4,11 @@ import os
 
 PEXELS_API_KEY = os.environ["PEXELS_API_KEY"]
 
-def get_hat(fabric, style, color):
+def get_hat(style, color):
     headers = {"Authorization": PEXELS_API_KEY}
     params = {
         "per_page": 1,
-        "query": f"hat {fabric} {style} {color}",
+        "query": f"hat {style} {color}",
     }
     url = "https://api.pexels.com/v1/search"
     response = requests.get(url, params=params, headers=headers)
