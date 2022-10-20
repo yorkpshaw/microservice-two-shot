@@ -12,7 +12,7 @@ class BinVO(models.Model):
 class Shoe(models.Model):
     manufacturer = models.CharField(max_length=100)
     model_name = models.CharField(max_length=100)
-    color = models.CharField(max_length=25)
+    color = models.CharField(max_length=100)
     shoe_url = models.URLField(null=True)
 
     bin = models.ForeignKey(

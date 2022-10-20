@@ -13,11 +13,19 @@ function Nav() {
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/shoes">Shoes</NavLink>
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="/shoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shoes</NavLink>
+              <ul className="dropdown-menu">
+                <li><NavLink className="dropdown-item" to="/shoes">View your shoes</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/shoes/new">Add a new shoe</NavLink></li>
+              </ul>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/hats">Hats</NavLink>
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="/shoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hats</NavLink>
+              <ul className="dropdown-menu">
+                <li><NavLink className="dropdown-item" to="/hats">View your hats</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/hats/new">Add a new hat</NavLink></li>
+              </ul>
             </li>
           </ul>
         </div>
