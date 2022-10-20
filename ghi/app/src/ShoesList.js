@@ -1,34 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
-
-// function ShoesList(props) {
-//     return (
-//         <table className="table table-striped">
-//             <thead>
-//                 <tr>
-//                     <th>Manufacturer</th>
-//                     <th>Model Name</th>
-//                     <th>Color</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {props.shoes.map(shoe => {
-//                     return (
-//                         <tr key={shoe.href}>
-//                             <td>{shoe.manufacturer}</td>
-//                             <td>{shoe.model_name}</td>
-//                             <td>{shoe.color}</td>
-//                         </tr>
-//                     );
-//                 })}
-//             </tbody>
-//         </table>
-//     );
-// }
-
-// export default ShoesList;
-
-
+import "./index.css"
 
 function ShoeColumn(props) {
   function deleteShoe(href)
@@ -48,6 +19,9 @@ function ShoeColumn(props) {
         return (
           <div key={shoe.href} className="card mb-3 shadow">
             <img src={shoe.shoe_url} className="card-img-top" />
+            <div className="card-img-overlay d-flex flex-column align-text-bottom">
+                <button className='btn-close' onClick={() => { window.confirm('Are you sure you wish to delete this hat?', ) && deleteShoe(shoe.href) } }></button>
+              </div>
             <div className="card-body">
               <h5 className="card-title">{shoe.manufacturer}</h5>
               <h6 className="card-subtitle mb-2 text-muted">
@@ -57,7 +31,6 @@ function ShoeColumn(props) {
                 {shoe.color}
                 {/* Located in {shoe.location.closet_name}, bin #{shoe.location.bin_number} */}
               </p>
-              <button className='btn btn-info' onClick={() => { window.confirm('Are you sure you wish to delete this shoe?', ) && deleteShoe(shoe.href) } }>Delete</button>
             </div>
           </div>
         );
@@ -132,3 +105,31 @@ class ShoesList extends React.Component {
 }
 
 export default ShoesList;
+
+
+// function ShoesList(props) {
+//     return (
+//         <table className="table table-striped">
+//             <thead>
+//                 <tr>
+//                     <th>Manufacturer</th>
+//                     <th>Model Name</th>
+//                     <th>Color</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 {props.shoes.map(shoe => {
+//                     return (
+//                         <tr key={shoe.href}>
+//                             <td>{shoe.manufacturer}</td>
+//                             <td>{shoe.model_name}</td>
+//                             <td>{shoe.color}</td>
+//                         </tr>
+//                     );
+//                 })}
+//             </tbody>
+//         </table>
+//     );
+// }
+
+// export default ShoesList;
