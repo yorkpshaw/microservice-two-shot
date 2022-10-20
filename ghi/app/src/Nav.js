@@ -21,7 +21,7 @@ function Nav() {
               </ul>
             </li>
             <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="/shoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hats</NavLink>
+              <NavLink className="nav-link dropdown-toggle" to="/hats" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hats</NavLink>
               <ul className="dropdown-menu">
                 <li><NavLink className="dropdown-item" to="/hats">View your hats</NavLink></li>
                 <li><NavLink className="dropdown-item" to="/hats/new">Add a new hat</NavLink></li>
