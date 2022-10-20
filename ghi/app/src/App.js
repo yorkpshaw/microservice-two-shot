@@ -1,6 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
+import HatForm from './HatForm';
+import HatsList from './HatsList';
+import ShoeForm from './ShoeForm';
+import ShoesList from './ShoesList'
 
 function App() {
   return (
