@@ -14,35 +14,21 @@ function Nav() {
                 <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
             </li>
             <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="/hats" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Hats
-              </NavLink>
-            <ul className="dropdown-menu">
-              <li><NavLink className="dropdown-item" to="/hats">View your hats</NavLink></li>
-              <li><NavLink className="dropdown-item" to="/hats/new">Add a new hat</NavLink></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-        {/* <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/shoes">Shoes</NavLink>
+              <NavLink className="nav-link dropdown-toggle" to="/shoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shoes</NavLink>
+              <ul className="dropdown-menu">
+                <li><NavLink className="dropdown-item" to="/shoes">View your shoes</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/shoes/new">Add a new shoe</NavLink></li>
+              </ul>
             </li>
             <li className="nav-item dropdown">
-              <NavLink className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Hats
-                </NavLink>
-                <ul className="dropdown-menu">
-                  <li><NavLink className="dropdown-item" to="/hats">List of hats</NavLink></li>
-                  <li><NavLink className="dropdown-item" to="/hats/new">Add new hats</NavLink></li>
-                </ul>
-              </li>
+              <NavLink className="nav-link dropdown-toggle" to="/hats" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hats</NavLink>
+              <ul className="dropdown-menu">
+                <li><NavLink className="dropdown-item" to="/hats">View your hats</NavLink></li>
+                <li><NavLink className="dropdown-item" to="/hats/new">Add a new hat</NavLink></li>
+              </ul>
+            </li>
           </ul>
-        </div> */}
+        </div>
       </div>
     </nav>
   )

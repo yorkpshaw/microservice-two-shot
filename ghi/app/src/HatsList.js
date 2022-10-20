@@ -24,10 +24,10 @@ function HatColumn(props) {
                 <h6 className="card-subtitle mb-2 text-muted">
                   {hat.fabric}
                 </h6>
-                <p className="card-text">
+                <div className="card-text">
                   {hat.color}
                   <p>Located in {hat.location.closet_name}, section {hat.location.section_number}, shelf {hat.location.shelf_number}</p>
-                </p>
+                </div>
               </div>
             </div>
           );
