@@ -49,6 +49,7 @@ services:
       DATABASE_URL: postgres://shoes:password@database:5432/shoes
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
+      PEXELS_API_KEY: ${PEXELS_API_KEY}
   shoes-poller:
     build:
       context: ./shoes/poll
